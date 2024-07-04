@@ -13,8 +13,8 @@ textarea.value = savedData.message || "";
 
 form.addEventListener("input", () => {
     const formData = {
-        email: email.value,
-        message: textarea.value
+        email: form.elements.email.value,
+        message: form.elements.message.value
     };
     localStorage.setItem(localStorageKey, JSON.stringify(formData));
 });
