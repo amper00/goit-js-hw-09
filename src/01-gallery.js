@@ -1,3 +1,8 @@
+// Opisany w dokumentacji
+import SimpleLightbox from "simplelightbox";
+// Opcjonalny import stylów
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 const images = [
   {
     preview: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
@@ -59,7 +64,7 @@ const items = images.map(image => {
   const link = document.createElement("img");
   link.classList.add("gallery-image");
   link.src = image.preview;
-  link.dataset.source = image.original;
+ 
   link.alt = image.description;
 
   a.appendChild(link);
@@ -70,3 +75,10 @@ const items = images.map(image => {
 
 
 gallery.append(...items);
+
+
+ const lightbox = new SimpleLightbox('.gallery a', {
+        captionsData: 'alt',
+        captionPosition: 'bottom', 
+        captionDelay: 250 
+      });
