@@ -59,3 +59,12 @@ body {
   width: 360px;
   height: 200px;
 }
+.partials-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.partials-container>div {
+  margin-bottom: 20px;
+  /* Dodaje odstęp między sekcjami */
+}
