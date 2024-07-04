@@ -1,27 +1,33 @@
+
 const form = document.querySelector("form");
 const localStorageKey = "feedback-form-state";
+
 const textarea = form.elements.message;
 const email = form.elements.email;
 
 
-textarea.value = localStorage.getItem(localStorageKey);
-
-form.addEventListener("input", event =>
-{
-    localStorage.setItem(localStorageKey, event.target.value);
+const savedData = JSON.parse(localStorage.getItem(localStorageKey)) || {};
+email.value = savedData.email || "";
+textarea.value = savedData.message || "";
 
 
-    }
-)
+form.addEventListener("input", () => {
+    const formData = {
+        email: email.value,
+        message: textarea.value
+    };
+    localStorage.setItem(localStorageKey, JSON.stringify(formData));
+});
 
-form.addEventListener("submit", event =>
-{
+
+form.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log(event.target.elements.message.value);
-    
-    form.reset();
 
-    }
-)
+   
+    const formData = JSON.parse(localStorage.getItem(localStorageKey));
+    console.log(formData);
 
 
+    localStorage.removeItem(localStorageKey);
+     form.reset();
+});
