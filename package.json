@@ -20,4 +20,3 @@
     "vite-plugin-html-inject": "^1.0.1"
   }
 }
-//  "build": "vite build --base=/vanilla-app-template/",
