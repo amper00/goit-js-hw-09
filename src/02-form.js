@@ -23,7 +23,13 @@ form.addEventListener("input", () => {
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-   
+    const emailCheck = form.elements.email.value;
+    const messageCheck = form.elements.message.value;
+
+    if (emailCheck === "" || messageCheck === "")
+    { alert("uzupełnij puste pola;)");
+    return;}
+        
     const formData = JSON.parse(localStorage.getItem(localStorageKey));
     console.log(formData);
 
